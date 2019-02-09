@@ -15,7 +15,8 @@ const supertest_1 = __importDefault(require("supertest"));
 const server_1 = __importDefault(require("./server"));
 test("[GET] /", () => __awaiter(this, void 0, void 0, function* () {
     const res = yield supertest_1.default(server_1.default).get("/");
-    expect(res.text).toBe("Node + TypeScript");
+    let message = "Node + TypeScript<br>Date: " + new Date().toLocaleDateString();
+    expect(res.text).toBe(message);
 }));
 test("[GET] /relatorio", () => __awaiter(this, void 0, void 0, function* () {
     const res = yield supertest_1.default(server_1.default).get("/relatorio");

@@ -1,9 +1,12 @@
 import express from "express";
+import util from "./util";
 
 const server = express();
 
 server.get("/", (_, res) => {
-    res.send("Node + TypeScript");
+    const message = util.greet();
+
+    res.send(message);
 });
 
 export default server;
