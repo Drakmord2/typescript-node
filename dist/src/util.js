@@ -1,14 +1,10 @@
-
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 class Util {
-
-    static greet(date: Date): string {
+    static greet(date) {
         let message = "Node + TypeScript<br>Date: ";
-
         message += date.toLocaleDateString();
-
         return message;
     }
-
 }
-
-export default Util;
+exports.default = Util;

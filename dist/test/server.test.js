@@ -12,15 +12,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
-const server_1 = __importDefault(require("./server"));
-test("[GET] /", () => __awaiter(this, void 0, void 0, function* () {
-    const res = yield supertest_1.default(server_1.default).get("/");
-    let message = "Node + TypeScript<br>Date: " + new Date().toLocaleDateString();
+const server_1 = __importDefault(require("../src/server"));
+test("[GET] /user", () => __awaiter(this, void 0, void 0, function* () {
+    const res = yield supertest_1.default(server_1.default).get("/user");
+    const message = "User: 1<br>Hash: 1az09";
     expect(res.text).toBe(message);
 }));
-test("[GET] /relatorio", () => __awaiter(this, void 0, void 0, function* () {
-    const res = yield supertest_1.default(server_1.default).get("/relatorio");
+test("[GET] /report", () => __awaiter(this, void 0, void 0, function* () {
+    const res = yield supertest_1.default(server_1.default).get("/report");
     let result = res.text.split("<pre>")[1];
     result = result.split("</pre>")[0];
-    expect(result).toBe("Cannot GET /relatorio");
+    expect(result).toBe("Cannot GET /report");
 }));
